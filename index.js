@@ -1,9 +1,11 @@
 const express = require('express');
-
+require('dotenv').config();
 const app = express();
 
 app.get('/', (req,res) => {
     res.json({"Deployment-Platform":"Vercel"})
 })
 
-app.listen(3000, () => console.log("server started on port 3000"))
+const port = process.env.PORT || 8000
+
+app.listen(port, () => console.log(`server started on port ${port}`))
